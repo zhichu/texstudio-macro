@@ -1,7 +1,10 @@
 {
     "abbrev": "",
     "description": [
-        "Format the selected text in ISO-4 form."
+        "Format the selected text in ISO-4 form.",
+        "`cURL` is needed to be installed and callable to make an HTTP GET request to",
+        "`https://abbreviso.toolforge.org/abbreviso/a/`",
+        "Try it at `https://marcinwrochna.github.io/abbrevIso/` to have a more visable impression."
     ],
     "formatVersion": 2,
     "menu": "",
