@@ -1,7 +1,10 @@
 {
     "abbrev": "",
     "description": [
-        "Format the selected text with `siunitx`."
+        "Format the selected text with `siunitx`.",
+        "For example:",
+        "`$2\\times10^{2}\\mu\\mathrm{m}$` ==> `\\SI{2e2}{μm}`",
+        "`$^{\\circ}C$` ==> `\\si{°C}`"
     ],
     "formatVersion": 2,
     "menu": "",
@@ -11,12 +14,12 @@
         "var t = cursor.selectedText().replace(/\\s+/g,\" \").trim();",
         "const mu = /\\\\mu(\\W)/g;",
         "t=t.replace(mu,(match, p1, offset) => `μ${p1}`);",
-        "const degree = /\\^({circ}|circ)/g;",
+        "const degree = /\\^({\\\\circ}|\\\\circ)/g;",
         "t=t.replace(degree,\"°\");",
         "const mathrm = /\\\\mathrm\\s*{([^}]+)}/g;",
         "t=t.replace(mathrm,(match, p1, offset) => `${p1}`);",
         "const dollars = /\\$/g;",
-        "const ndollars = t.match(dollars).length;",
+        "const ndollars = (t.match(dollars) == null ? 0 : t.match(dollars).length);",
         "t=t.replace(/\\$/g,\"\")+\"$\".repeat(ndollars);",
         "t=t.replace(/\\$\\$/g,\"\");",
         "const exp = /(\\\\times|x|×)\\s*10\\s*\\^{?(-?\\d+)}?/g;",
