@@ -1,0 +1,27 @@
+{
+    "abbrev": "",
+    "description": [
+        "Format the selected text in ISO-4 form.",
+        "`cURL` is needed to be installed and callable to make an HTTP GET request to",
+        "`https://abbreviso.toolforge.org/abbreviso/a/`",
+        "Try it at `https://marcinwrochna.github.io/abbrevIso/` to have a more visable impression."
+    ],
+    "formatVersion": 2,
+    "menu": "",
+    "name": "ISO-4",
+    "shortcut": "",
+    "tag": [
+        "var t = cursor.selectedText().replace(/\\s+/g,\" \");",
+        "var j = encodeURI(t) ;",
+        "var url= \"https://abbreviso.toolforge.org/abbreviso/a/\" + j.replace(/%/g,\"%%\");",
+        "",
+        "var jcall = system(\"curl -s -G \" + url + \" > /dev/null\");",
+        "//cursor.replaceSelectedText('');",
+        "jcall.standardOutputRead.connect(function(output) {",
+        "  editor.write(output);",
+        "});",
+        "jcall.waitForFinished();"
+    ],
+    "trigger": "",
+    "type": "Script"
+}
